@@ -1,0 +1,28 @@
+# POST new people
+curl --header "Content-Type: application/json" --request POST --data '{"firstname": "Filip", "lastname": "Cima", "role": "basic_user", "mail": "filip.cima@gmail.com", "password_hash": "ahoj", "superior": "5c0820e3766cf241597b3324"}'   http://localhost:5000/people
+
+# POST new plan
+curl --header "Content-Type: application/json" --request POST --data '{"owner": "5c0820e3766cf241597b3324", "status": "pending"}' http://localhost:5000/superior_plans
+
+# POST new shifts
+curl --header "Content-Type: application/json" --request POST --data '{"date_from": "18/12/18 07:00:00", "date_to": "18/12/18 14:00:00", "superior_plan": "5c08246f766cf241597b3326", "number_of_workers": 4, "workers": ["5c0d7e92766cf22a032f3a3e"] }' http://localhost:5000/shifts
+
+# POST new change_request
+curl --header "Content-Type: application/json" --request POST --data '{"created_by": "5c081898766cf240c4eaca25", "for_shift": "5c0833b5766cf2439b6947ad", "resolved": false}' http://localhost:5000/change_requests
+
+# POST new cancel_request
+curl --header "Content-Type: application/json" --request POST --data '{"created_by": "5c081898766cf240c4eaca25", "for_shift": "5c0833b5766cf2439b6947ad", "resolved": false}' http://localhost:5000/cancel_requests
+
+# POST new notification
+curl --header "Content-Type: application/json" --request POST --data '{"from_user": "5c0d7e92766cf22a032f3a3e", "for_users": ["5c0d7e92766cf22a032f3a3e"], "notification_type": "change_request", "shift": "5c0833b5766cf2439b6947ad", "show": true, "message": "Vem za me smenu!"}' http://localhost:5000/notifications
+
+#PATCH shift
+curl -H "If-Match: 600c0035599b04f4faed2730c70994e3308fec6d" -H "Content-Type: application/json" -X PATCH -i http://localhost:5000/shifts/5c0833b5766cf2439b6947ad -d '{"workers": ["5c082197766cf241597b3325"]}'
+
+# POST new request
+curl --header "Content-Type: application/json" --request POST --data '{"created_by": "5c0d7e92766cf22a032f3a3e", "for_shift": "5c0bc973766cf2463976e8d5", "resolved": false, "accepted": false, "request_type": "change"}' http://localhost:5000/cancel_requests
+
+
+
+
+
