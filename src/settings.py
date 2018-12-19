@@ -4,7 +4,6 @@ MONGO_URI = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/shiftapp')
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH', 'DELETE']
 DATE_FORMAT = '%d/%m/%y %H:%M:%S'
-
 people = {
     'item_title': 'person',
 
@@ -98,6 +97,9 @@ superior_plans = {
                 }
             }
         },
+        'created': {
+            'type': 'datetime'
+        }
     }
 }
 
