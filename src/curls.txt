@@ -20,7 +20,11 @@ curl --header "Content-Type: application/json" --request POST --data '{"from_use
 curl -H "If-Match: 600c0035599b04f4faed2730c70994e3308fec6d" -H "Content-Type: application/json" -X PATCH -i http://localhost:5000/shifts/5c0833b5766cf2439b6947ad -d '{"workers": ["5c082197766cf241597b3325"]}'
 
 # POST new request
-curl --header "Content-Type: application/json" --request POST --data '{"created_by": "5c0d7e92766cf22a032f3a3e", "for_shift": "5c0bc973766cf2463976e8d5", "resolved": false, "accepted": false, "request_type": "change"}' http://localhost:5000/cancel_requests
+curl --header "Content-Type: application/json" --request POST --data '{"created_by": "5c0d7e92766cf22a032f3a3e", "for_shift": "5c0bc973766cf2463976e8d5", "resolved": true, "accepted": false, "request_type": "change"}' http://localhost:5000/cancel_requests
+
+# POWT new cancel request
+curl --header "Content-Type: application/json" --request POST --data '{"created_by": "5c0d7e92766cf22a032f3a3e", "for_shift": "5c1502dd766cf224759422a6", "resolved": false, "accepted": false, "request_type": "cancel"}' http://localhost:5000/requests
+
 
 
 
