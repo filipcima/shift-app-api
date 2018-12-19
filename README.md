@@ -3,7 +3,7 @@
 ```
 git clone https://github.com/filipcima/shift-app-api.git
 cd shift-app-api
-./run.sh
+./run.sh "your-local-up"
 ```
 API will be available on port 5000.
 
